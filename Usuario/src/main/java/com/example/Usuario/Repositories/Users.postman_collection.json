@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "86cc0f5c-fdb9-428c-a568-99ef27cc2b2f",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21190709"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/get_users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/get_users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"get_users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/allcities",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/allcities",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allcities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/updateUser/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User\":{\r\n        \"name\":\"Alfredo\",\r\n        \"last_name_user\":\"Vargas\",\r\n        \"birthdate_user\":\"22/12/2000\",\r\n        \"city_id\":\"2\"\r\n    }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/updateUser/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updateUser",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/updateCity/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\"=\"Korea\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/updateCity/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updateCity",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/NewUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User\":{\r\n        \"name\":\"Urnulfa\",\r\n        \"last_name_user\":\"Ferrero\",\r\n        \"birthdate_user\":\"28/2/2000\",\r\n        \"city_id\":\"1\"\r\n    }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/NewUser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NewUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/NewCity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\": \"Bucaramanga\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/NewCity",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"NewCity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/deleteUser/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/deleteUser/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/deleteCity/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/deleteCity/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteCity",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

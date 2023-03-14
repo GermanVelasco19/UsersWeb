@@ -20,6 +20,7 @@ public class User implements Serializable {
     private Date birthdate_user;
 
     @ManyToOne
+    @JoinColumn(name="city_id")
     private City city_id;
 
 }
