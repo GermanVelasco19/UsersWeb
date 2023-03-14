@@ -1,11 +1,11 @@
-CREATE TABLE Cities (
+CREATE TABLE city (
   city_id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   PRIMARY KEY (city_id)
 );
 
 
-CREATE TABLE Users (
+CREATE TABLE user (
   user_id INT NOT NULL AUTO_INCREMENT,
   name_user VARCHAR(255) NOT NULL,
   last_name_user VARCHAR(255) NOT NULL,
