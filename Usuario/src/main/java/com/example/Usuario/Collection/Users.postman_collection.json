@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "86cc0f5c-fdb9-428c-a568-99ef27cc2b2f",
+		"_postman_id": "eaef2830-1616-47a1-bf52-5657ccb11e1f",
 		"name": "Users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21190709"
+		"_exporter_id": "26277424"
 	},
 	"item": [
 		{
-			"name": "localhost:8080/get_users",
+			"name": "GETUSERS",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -25,7 +25,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/allcities",
+			"name": "GETCITIES",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -50,7 +50,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/updateUser/2",
+			"name": "UPDATEUSERBYID",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -78,7 +78,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/updateCity/1",
+			"name": "UPDATECITYBYID",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -101,7 +101,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/NewUser",
+			"name": "NEWUSER",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -128,7 +128,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/NewCity",
+			"name": "NEWCITY",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -155,7 +155,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/deleteUser/1",
+			"name": "DELETEUSER",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -174,7 +174,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/deleteCity/1",
+			"name": "DELETECITY",
 			"request": {
 				"method": "GET",
 				"header": [],
