@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "eaef2830-1616-47a1-bf52-5657ccb11e1f",
+		"_postman_id": "86cc0f5c-fdb9-428c-a568-99ef27cc2b2f",
 		"name": "Users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26277424"
+		"_exporter_id": "21190709"
 	},
 	"item": [
 		{
@@ -50,13 +50,13 @@
 			"response": []
 		},
 		{
-			"name": "UPDATEUSERBYID",
+			"name": "UPDATEUSERS",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"User\":{\r\n        \"name\":\"Alfredo\",\r\n        \"last_name_user\":\"Vargas\",\r\n        \"birthdate_user\":\"22/12/2000\",\r\n        \"city_id\":\"2\"\r\n    }\r\n    \r\n}",
+					"raw": "{\r\n    \"name_user\":\"petunia\",\r\n    \"last_name_user\":\"valenzuela\",\r\n    \"birthdate_user\":\"29/2/2000\",\r\n    \"city_id\":{\"city_id\":\"1\",\"name\":\"cali\"}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -64,21 +64,21 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/updateUser/2",
+					"raw": "localhost:8080/updateUser/3",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"updateUser",
-						"2"
+						"3"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "UPDATECITYBYID",
+			"name": "UPDATEUSERS",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -107,7 +107,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"User\":{\r\n        \"name\":\"Urnulfa\",\r\n        \"last_name_user\":\"Ferrero\",\r\n        \"birthdate_user\":\"28/2/2000\",\r\n        \"city_id\":\"1\"\r\n    }\r\n    \r\n}",
+					"raw": "{\r\n    \"name_user\": \"Urnulfa\",\r\n    \"last_name_user\": \"Ferrero\",\r\n    \"birthdate_user\": \"1999-11-07\",\r\n    \"city_id\":{\"city_id\": 1,\"name\": \"cali\"}\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -134,7 +134,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n    \"name\": \"Bucaramanga\"\r\n    \r\n}",
+					"raw": "{\r\n\r\n    \"name\": \"Chia\"\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -176,7 +176,7 @@
 		{
 			"name": "DELETECITY",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "localhost:8080/deleteCity/1",
