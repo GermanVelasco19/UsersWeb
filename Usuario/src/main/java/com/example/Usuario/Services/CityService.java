@@ -21,11 +21,19 @@ public class CityService {
         Repo.save(c);
     }
 
-    public void updateCity(String name,Integer id){
-        //Repo.updateCity(name,id);
+    public void updateCity(City c){
+        Repo.save(c);
     }
 
     public void deleteCity(Integer ID){
         Repo.deleteById(ID);
+    }
+
+    public City findById(Integer ID){
+        if (Repo.existsById(ID)){
+            return Repo.getReferenceById(ID);
+        }else{
+            return null;
+        }
     }
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_id;
     private String name_user;
     private String last_name_user;

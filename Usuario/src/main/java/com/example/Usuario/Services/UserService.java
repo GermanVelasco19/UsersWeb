@@ -1,13 +1,12 @@
 package com.example.Usuario.Services;
 
-import com.example.Usuario.Entities.City;
 import com.example.Usuario.Entities.User;
 import com.example.Usuario.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -22,9 +21,18 @@ public class UserService {
     public void Put (User u ){
         Repo.save(u);
     }
+    public void UpdateUser (User u){
+        System.out.println(u.getName_user());
 
-    public void Update (Integer id, String name, String last_name, String birthdate, City city){
-        Repo.updateUser(id,name,last_name,birthdate,city);
+        Repo.save(u);
+    }
+
+    public User findOne(Integer id){
+        if (Repo.existsById(id)){
+            return Repo.getReferenceById(id);
+        }else {
+            return null;
+        }
     }
 
     public void DeleteUser(Integer id){

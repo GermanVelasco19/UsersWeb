@@ -1,6 +1,7 @@
 package com.example.Usuario.Controllers;
 
 import com.example.Usuario.Entities.City;
+import com.example.Usuario.Entities.User;
 import com.example.Usuario.Services.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -27,7 +28,13 @@ public class CityController {
 
     @PutMapping(value="/updateCity/{id}")
     public void updateCity(@RequestBody String name,@PathVariable Integer id){
-        //city.updateCity(name,id);
+
+        City x =city.findById(id);
+        if (x!=null) {
+            city.updateCity(x);
+        }else{
+            System.out.println("Esa ciudad no existe");
+        }
     }
 
     @DeleteMapping(value="/deleteCity/{ID}")
