@@ -1,11 +1,10 @@
 package com.example.Usuario.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,5 +14,9 @@ public class City implements Serializable {
     private Integer city_id;
 
     private String name;
+
+    @OneToMany(mappedBy = "user_id")
+    @JsonIgnore
+    private List<User> users;
 
 }

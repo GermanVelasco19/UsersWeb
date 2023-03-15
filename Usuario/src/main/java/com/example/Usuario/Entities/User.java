@@ -2,13 +2,8 @@ package com.example.Usuario.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-    import lombok.Value;
-import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
