@@ -26,12 +26,8 @@ public class UserController {
     public void updateUser(@RequestBody User user, @PathVariable Integer id){
         //user.Update(user.getUser_id(),user.getName_user(),user.getLast_name_user(),user.getBirthdate_user(),user.getCity_id());
     }
-
     @DeleteMapping(value = "/deleteUser/{id}")
     public void DeleteUser (@PathVariable Integer id){
         user.DeleteUser(id);
     }
-
-
-
 }
