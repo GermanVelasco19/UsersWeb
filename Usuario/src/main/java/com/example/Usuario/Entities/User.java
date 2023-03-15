@@ -2,11 +2,12 @@ package com.example.Usuario.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Value;
+    import lombok.Value;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,8 +20,8 @@ public class User implements Serializable {
 
     private Date birthdate_user;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name="city_id")
-    private City city_id;
+    private List<City> city_id;
 
 }
