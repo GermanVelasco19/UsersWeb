@@ -19,7 +19,8 @@ public class UserController {
 
     @PostMapping(value = "/NewUser")
     public void NewUser(@RequestBody User u){
-        user.InsertNewUser(u);
+        System.out.println(u.getCity_id());
+        user.Put(u);
     }
 
     @PutMapping(value = "/updateUser/{id}")

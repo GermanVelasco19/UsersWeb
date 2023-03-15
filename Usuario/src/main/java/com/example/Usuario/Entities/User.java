@@ -3,6 +3,7 @@ package com.example.Usuario.Entities;
 import jakarta.persistence.*;
 import lombok.Data;
     import lombok.Value;
+import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,10 +19,10 @@ public class User implements Serializable {
     private String name_user;
     private String last_name_user;
 
-    private Date birthdate_user;
+    private String birthdate_user;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="city_id")
-    private List<City> city_id;
+    private City city_id;
 
 }

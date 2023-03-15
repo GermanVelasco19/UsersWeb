@@ -23,12 +23,8 @@ public class UserService {
         Repo.save(u);
     }
 
-    public void Update (Integer id, String name, String last_name, Date birthdate, City city){
+    public void Update (Integer id, String name, String last_name, String birthdate, City city){
         Repo.updateUser(id,name,last_name,birthdate,city);
-    }
-
-    public void InsertNewUser(User u){
-        Repo.save(u);
     }
 
     public void DeleteUser(Integer id){
