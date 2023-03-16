@@ -4,9 +4,8 @@ import com.example.Usuario.Entities.User;
 import com.example.Usuario.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
-import java.util.Optional;
+
 
 @Service
 public class UserService {

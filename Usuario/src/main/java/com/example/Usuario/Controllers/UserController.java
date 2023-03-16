@@ -1,6 +1,5 @@
 package com.example.Usuario.Controllers;
 
-import com.example.Usuario.Entities.City;
 import com.example.Usuario.Entities.User;
 import com.example.Usuario.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
