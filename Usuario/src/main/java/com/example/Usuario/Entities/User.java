@@ -13,7 +13,9 @@ public class User implements Serializable {
     private Integer user_id;
     private String name_user;
     private String last_name_user;
-
+    private String username;
+    private String password;
+    private String token;
     private String birthdate_user;
 
     @ManyToOne

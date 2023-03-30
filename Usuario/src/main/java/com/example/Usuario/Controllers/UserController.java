@@ -2,12 +2,18 @@ package com.example.Usuario.Controllers;
 
 import com.example.Usuario.Entities.User;
 import com.example.Usuario.Services.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class UserController {
@@ -23,6 +29,34 @@ public class UserController {
 
         user.Put(u);
 
+    }
+
+    @PostMapping("user")
+    public String login(@RequestParam("user") String username,@RequestParam("password") String pwd){
+
+        String token = getJWTToken(username);
+        User user = new User();
+        user.setToken(token);
+        return token;
+    }
+
+    private String getJWTToken(String username){
+        String secretKey = "mySecretKey";
+        List<GrantedAuthority> grantedAuthorityList = AuthorityUtils.
+                commaSeparatedStringToAuthorityList("ROLE_USER");
+        String token = Jwts.
+                builder().
+                setId("JaverianaJWT")
+                .setSubject(username)
+                .claim("authorities",grantedAuthorityList.stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toList()))
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date((System.currentTimeMillis()+600000)))
+                .signWith(SignatureAlgorithm.HS512,
+                        secretKey.getBytes()).compact();
+
+        return "palabra"+token;
     }
 
     @PutMapping(value = "/updateUser/{id}")
