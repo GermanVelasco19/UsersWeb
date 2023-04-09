@@ -8,15 +8,32 @@
 	"item": [
 		{
 			"name": "GETUSERS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "palabraeyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJKYXZlcmlhbmFKV1QiLCJzdWIiOiJVcm51bGZhMTkiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjgwMTM3ODM0LCJleHAiOjE2ODAxMzg0MzR9.mySYq-Zw-CJbEE1F9uoUgDKht791F3impCFNggaHDeemg4ctGKmUUejJ_RJ-o7CxmahTcktwdeFrSVsFAYacfw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
 				"url": {
-					"raw": "localhost:8080/get_users",
+					"raw": "localhost:8083/get_users",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8083",
 					"path": [
 						"get_users"
 					]
@@ -31,7 +48,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "palabraeyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJKYXZlcmlhbmFKV1QiLCJzdWIiOiJVcm51bGZhMTkiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjc4OTI1MTYxLCJleHAiOjE2Nzg5MjU3NjF9.ZPxm0_A7GbJrs6JguVRAYjGJsrDAfQ6WuCEMDuu96AVBEUUZHAji_OfeiEnK21k1pU8QULWo3qLZGo_2H-FXBA",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
@@ -53,10 +76,16 @@
 			"name": "UPDATEUSERS",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "palabraeyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJKYXZlcmlhbmFKV1QiLCJzdWIiOiJVcm51bGZhMTkiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjgwMTM4MTQ5LCJleHAiOjE2ODAxMzg3NDl9.-Leef3TvHDEkyyClJ6kQIB_xIGDNlW1SzHSDQ1xpwKQ5M1qeZtHMPbHz--OJZbY-BOnjd2qQgRE3yf_hjTtDZA",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name_user\":\"petunia\",\r\n    \"last_name_user\":\"valenzuela\",\r\n    \"birthdate_user\":\"29/2/2000\",\r\n    \"city_id\":{\"city_id\":\"1\",\"name\":\"cali\"}\r\n}",
+					"raw": "{\r\n    \"name_user\":\"petunia\",\r\n    \"last_name_user\":\"valenzuela\",\r\n    \"birthdate_user\":\"29-2-2000\",\r\n    \"city_id\":{\r\n        \"city_id\": 2,\r\n        \"name\": \"Zipaquira\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -64,14 +93,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/updateUser/3",
+					"raw": "localhost:3308/updateUser/4",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3308",
 					"path": [
 						"updateUser",
-						"3"
+						"4"
 					]
 				}
 			},
@@ -103,11 +132,20 @@
 		{
 			"name": "NEWUSER",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "BearereyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJKYXZlcmlhbmFKV1QiLCJzdWIiOiJVcm51bGZhMTkiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjgxMDcwMTYyLCJleHAiOjE2ODEwNzA3NjJ9.ZC_3EwbZBKHIi8ZR7yShB2H1gaJmmq4UCyOLaE3PFJMA1fQU_IoZ592w5RWCDq8itTVhe2AJZn2w0czNFodLgA",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name_user\": \"Urnulfa\",\r\n    \"last_name_user\": \"Ferrero\",\r\n    \"birthdate_user\": \"1999-11-07\",\r\n    \"city_id\":{\"city_id\": 1,\"name\": \"cali\"}\r\n}\r\n",
+					"raw": "{\r\n    \"name_user\": \"Urnulfa\",\r\n    \"last_name_user\": \"Ferrero\",\r\n    \"birthdate_user\": \"2010-11-07\",\r\n    \"username\":\"Urnul12\",\r\n    \"token\":\"5687\",\r\n    \"password\":\"12344\",\r\n    \"city_id\":{\"city_id\": 1,\"name\": \"cali\"}\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,11 +153,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/NewUser",
+					"raw": "localhost:8083/NewUser",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8083",
 					"path": [
 						"NewUser"
 					]
@@ -160,14 +198,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/deleteUser/1",
+					"raw": "localhost:8080/deleteUser/7",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"deleteUser",
-						"1"
+						"7"
 					]
 				}
 			},
@@ -179,14 +217,49 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/deleteCity/1",
+					"raw": "localhost:8080/deleteCity/7",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"deleteCity",
-						"1"
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Authorization",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8083/user?user=Urnulfa19&password=1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "Urnulfa19"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						}
 					]
 				}
 			},

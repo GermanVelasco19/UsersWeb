@@ -33,7 +33,7 @@ public class UserController {
 
     @PostMapping("user")
     public String login(@RequestParam("user") String username,@RequestParam("password") String pwd){
-
+        //TODO VERIFICAR CONTRASENA
         String token = getJWTToken(username);
         User user = new User();
         user.setToken(token);
@@ -56,7 +56,7 @@ public class UserController {
                 .signWith(SignatureAlgorithm.HS512,
                         secretKey.getBytes()).compact();
 
-        return "palabra"+token;
+        return "Bearer"+token;
     }
 
     @PutMapping(value = "/updateUser/{id}")

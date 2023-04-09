@@ -19,8 +19,8 @@ public class CustomSecurityConfiguration {
         http.cors().and().csrf().disable()
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .requestMatchers(HttpMethod.POST,"/user").permitAll()
                 .requestMatchers(HttpMethod.GET,"/get_users").permitAll()
+                .requestMatchers(HttpMethod.POST,"/user").permitAll()
                 .anyRequest().authenticated();
 
         return http.build();
