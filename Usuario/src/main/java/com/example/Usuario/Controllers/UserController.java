@@ -4,6 +4,7 @@ import com.example.Usuario.Entities.User;
 import com.example.Usuario.Services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +16,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class UserController {
 
@@ -32,6 +32,7 @@ public class UserController {
 
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("user")
     public String login(@RequestParam("user") String username,@RequestParam("password") String pwd){
         //TODO VERIFICAR CONTRASENA
