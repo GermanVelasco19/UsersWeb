@@ -5,7 +5,9 @@ import com.example.Usuario.Services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.tomcat.util.json.JSONParser;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -34,14 +36,27 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("user")
+    @ResponseBody
     public String login(@RequestParam("user") String username,@RequestParam("password") String pwd){
-        //TODO VERIFICAR CONTRASENA
-        String token = getJWTToken(username);
-        User user = new User();
-        user.setToken(token);
-        return token;
-
+        ArrayList<User> users = user.SearchAll();
+        boolean correcto = false;
+        for (int i = 0;i<users.size();i++) {
+            if (users.get(i).getUsername().equals(username)){
+                if(users.get(i).getPassword().equals(pwd)){
+                    correcto=true;
+                }
+            }
+        }
+        if(correcto) {
+            String token = getJWTToken(username);
+            User user = new User();
+            user.setToken(token);
+            return "{\"token\":\"" + token + "\"}";
+        }else{
+            return "{\"token\":\"" + "error" + "\"}";
+        }
     }
+
 
     private String getJWTToken(String username){
         String secretKey = "mySecretKey";
