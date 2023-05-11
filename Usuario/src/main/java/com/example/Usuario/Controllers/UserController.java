@@ -8,7 +8,12 @@ import org.apache.tomcat.util.json.JSONParser;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParserFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +31,20 @@ public class UserController {
 
     @GetMapping(value = "/get_users", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ArrayList<User> getAll() {return user.SearchAll();}
+
+    @GetMapping(value = "/get_users_paginated")
+    public ResponseEntity<Page<User>>usersPaginated(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "6") int size,
+            @RequestParam(defaultValue = "id") String order,
+            @RequestParam(defaultValue = "true") boolean asc
+    ){
+        Page<User> userspages = user.paginateUser(PageRequest.of(page,size, Sort.by(order)));
+        if(!asc){
+            userspages = user.paginateUser(PageRequest.of(page,size, Sort.by(order).descending()));
+        }
+        return new ResponseEntity<Page<User>>(userspages, HttpStatus.OK);
+    }
 
     @PostMapping(value = "/NewUser")
     public void NewUser(@RequestBody User u){

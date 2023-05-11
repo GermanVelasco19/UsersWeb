@@ -21,6 +21,7 @@ public class CustomSecurityConfiguration {
                 .authorizeRequests()
                 .requestMatchers(HttpMethod.GET,"/get_users").permitAll()
                 .requestMatchers(HttpMethod.POST,"/user").permitAll()
+                .requestMatchers(HttpMethod.GET, "get_users_paginated").permitAll()
                 .anyRequest().authenticated();
 
         return http.build();
