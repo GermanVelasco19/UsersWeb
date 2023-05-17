@@ -29,9 +29,11 @@ public class UserController {
     @Autowired
     UserService user;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/get_users", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ArrayList<User> getAll() {return user.SearchAll();}
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/get_users_paginated")
     public ResponseEntity<Page<User>>usersPaginated(
             @RequestParam(defaultValue = "0") int page,
@@ -46,6 +48,7 @@ public class UserController {
         return new ResponseEntity<Page<User>>(userspages, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/NewUser")
     public void NewUser(@RequestBody User u){
 
@@ -96,6 +99,7 @@ public class UserController {
         return "Bearer"+token;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(value = "/updateUser/{id}")
     public void updateUser(@RequestBody User u, @PathVariable Integer id){
         u.setUser_id(id);
@@ -111,6 +115,8 @@ public class UserController {
             System.out.println("Ese Usuario no existe");
         }
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(value = "/deleteUser/{id}")
     public void DeleteUser (@PathVariable Integer id){
         user.DeleteUser(id);
