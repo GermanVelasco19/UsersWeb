@@ -21,7 +21,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private final String SECRET = "mySecretKey";
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         try{
             if(checkJWTToken(request,response)){
