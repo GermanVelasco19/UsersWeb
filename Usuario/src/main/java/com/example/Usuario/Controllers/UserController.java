@@ -31,7 +31,18 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/get_users", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ArrayList<User> getAll() {return user.SearchAll();}
+    public ArrayList<User> getAll() {
+        ArrayList<User> allUsers = user.SearchAll();
+        ArrayList<User> activeUsers = new ArrayList<>();
+
+        for (User u : allUsers) {
+            if (u.isActivo()) {
+                activeUsers.add(u);
+            }
+        }
+
+        return activeUsers;
+    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/get_users_paginated")
@@ -50,9 +61,18 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/NewUser")
-    public void NewUser(@RequestBody User u){
+    public boolean NewUser(@RequestBody User u){
+        ArrayList<User> users = user.SearchAll();
 
-        user.Put(u);
+        boolean userExists = users.stream()
+                .anyMatch(existingUser -> existingUser.getUsername().equals(u.getUsername()));
+
+        if (userExists) {
+            return false;
+        } else {
+            user.Put(u);
+            return true;
+        }
 
     }
 
@@ -119,6 +139,12 @@ public class UserController {
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(value = "/deleteUser/{id}")
     public void DeleteUser (@PathVariable Integer id){
-        user.DeleteUser(id);
+
+        User userToDelete = user.findOne(id);
+        if (userToDelete != null) {
+            userToDelete.setActivo(false);
+            user.UpdateUser(userToDelete);
+        }
+
     }
 }
