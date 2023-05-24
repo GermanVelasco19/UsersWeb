@@ -119,11 +119,12 @@ public class UserController {
         return "Bearer"+token;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(value = "/updateUser/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void updateUser(@RequestBody User u, @PathVariable Integer id){
         u.setUser_id(id);
         User x =user.findOne(id);
+        System.out.println(x);
         if (x!=null) {
             x.setName_user(u.getName_user());
             x.setLast_name_user(u.getLast_name_user());
