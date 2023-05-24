@@ -84,7 +84,7 @@ public class UserController {
         boolean correcto = false;
         for (int i = 0;i<users.size();i++) {
             if (users.get(i).getUsername().equals(username)){
-                if(users.get(i).getPassword().equals(pwd)){
+                if(users.get(i).getPassword().equals(pwd) ){
                     correcto=true;
                 }
             }
